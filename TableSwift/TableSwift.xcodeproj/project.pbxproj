@@ -50,6 +50,13 @@
 		011696272D6DFEEE0045DD42 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011696262D6DFEEE0045DD42 /* UserProfile.swift */; };
 		011696292D6E033B0045DD42 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011696282D6E033B0045DD42 /* LoginView.swift */; };
 		0116962B2D6E04090045DD42 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0116962A2D6E04090045DD42 /* SignupView.swift */; };
+		DD62A71A2D6E532400012EF1 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62A7192D6E532400012EF1 /* Product.swift */; };
+		DD62A71C2D6E535B00012EF1 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62A71B2D6E535B00012EF1 /* ProductService.swift */; };
+		DD62A71E2D6E56BA00012EF1 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62A71D2D6E56BA00012EF1 /* ProductListView.swift */; };
+		DD62A7202D6E56DC00012EF1 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62A71F2D6E56DC00012EF1 /* AddProductView.swift */; };
+		DD62A7222D6E58FC00012EF1 /* EditProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62A7212D6E58FC00012EF1 /* EditProductView.swift */; };
+		DD62A7242D6E593E00012EF1 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62A7232D6E593E00012EF1 /* ProductDetailView.swift */; };
+		DD62A7272D6E5A4400012EF1 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62A7262D6E5A4400012EF1 /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +99,13 @@
 		011696262D6DFEEE0045DD42 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		011696282D6E033B0045DD42 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		0116962A2D6E04090045DD42 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		DD62A7192D6E532400012EF1 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		DD62A71B2D6E535B00012EF1 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		DD62A71D2D6E56BA00012EF1 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
+		DD62A71F2D6E56DC00012EF1 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
+		DD62A7212D6E58FC00012EF1 /* EditProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductView.swift; sourceTree = "<group>"; };
+		DD62A7232D6E593E00012EF1 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		DD62A7262D6E5A4400012EF1 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +181,7 @@
 		011695B12D6DDA470045DD42 /* TableSwift */ = {
 			isa = PBXGroup;
 			children = (
+				DD62A7142D6E529800012EF1 /* Product */,
 				011696152D6DF0CA0045DD42 /* Auth */,
 				011695B22D6DDA470045DD42 /* TableSwiftApp.swift */,
 				011695B42D6DDA470045DD42 /* ContentView.swift */,
@@ -249,6 +264,52 @@
 				011696262D6DFEEE0045DD42 /* UserProfile.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		DD62A7142D6E529800012EF1 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				DD62A7252D6E5A2400012EF1 /* MainTab */,
+				DD62A7182D6E52C900012EF1 /* View */,
+				DD62A7172D6E52C000012EF1 /* Data */,
+				DD62A7162D6E52B200012EF1 /* Model */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		DD62A7162D6E52B200012EF1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD62A71B2D6E535B00012EF1 /* ProductService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD62A7172D6E52C000012EF1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DD62A7192D6E532400012EF1 /* Product.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DD62A7182D6E52C900012EF1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD62A71D2D6E56BA00012EF1 /* ProductListView.swift */,
+				DD62A71F2D6E56DC00012EF1 /* AddProductView.swift */,
+				DD62A7212D6E58FC00012EF1 /* EditProductView.swift */,
+				DD62A7232D6E593E00012EF1 /* ProductDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD62A7252D6E5A2400012EF1 /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				DD62A7262D6E5A4400012EF1 /* MainTabView.swift */,
+			);
+			path = MainTab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,16 +475,23 @@
 				011696172D6DF0F40045DD42 /* AuthViewModel.swift in Sources */,
 				0116961E2D6DF1870045DD42 /* HomeView.swift in Sources */,
 				011696242D6DFE460045DD42 /* ProfileView.swift in Sources */,
+				DD62A7202D6E56DC00012EF1 /* AddProductView.swift in Sources */,
 				011695BF2D6DDA490045DD42 /* TableSwift.xcdatamodeld in Sources */,
+				DD62A7242D6E593E00012EF1 /* ProductDetailView.swift in Sources */,
 				0116961B2D6DF13C0045DD42 /* AuthView.swift in Sources */,
 				011696272D6DFEEE0045DD42 /* UserProfile.swift in Sources */,
 				011696292D6E033B0045DD42 /* LoginView.swift in Sources */,
 				011695BC2D6DDA490045DD42 /* Persistence.swift in Sources */,
+				DD62A71E2D6E56BA00012EF1 /* ProductListView.swift in Sources */,
 				011696202D6DF9460045DD42 /* ImagePicker.swift in Sources */,
 				011695B52D6DDA470045DD42 /* ContentView.swift in Sources */,
+				DD62A7222D6E58FC00012EF1 /* EditProductView.swift in Sources */,
 				011695B32D6DDA470045DD42 /* TableSwiftApp.swift in Sources */,
 				0116962B2D6E04090045DD42 /* SignupView.swift in Sources */,
 				011696222D6DFE110045DD42 /* EditProfile.swift in Sources */,
+				DD62A71A2D6E532400012EF1 /* Product.swift in Sources */,
+				DD62A71C2D6E535B00012EF1 /* ProductService.swift in Sources */,
+				DD62A7272D6E5A4400012EF1 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

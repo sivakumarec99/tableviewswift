@@ -16,31 +16,51 @@ class AuthViewModel: ObservableObject {
     @Published var errorMessage: String?
     private let db = Firestore.firestore()
 
-    init() {
-           Auth.auth().addStateDidChangeListener { [weak self] _, user in
-               DispatchQueue.main.async {
-                   self?.user = user
-                   if let user = user {
-                       self?.checkIfUserExists(user: user)
-                   } else {
-                       self?.userProfile = nil
-                   }
-               }
-           }
-       }
+    @Published var isAuthenticated = false
 
-       private func checkIfUserExists(user: User) {
-           user.reload { error in
-               DispatchQueue.main.async {
-                   if let error = error {
-                       print("User does not exist or session expired: \(error.localizedDescription)")
-                       self.logout() // Force logout if user is deleted
-                   } else {
-                       self.fetchUserProfile()
-                   }
-               }
-           }
-       }
+    init() {
+         checkAuthStatus()
+     }
+
+     func checkAuthStatus() {
+         if let currentUser = Auth.auth().currentUser {
+             self.user = currentUser
+             self.isAuthenticated = true
+         } else {
+             self.user = nil
+             self.isAuthenticated = false
+         }
+     }
+    
+    
+    func signup(name: String, email: String, password: String, completion: @escaping (Error?) -> Void) {
+            Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                if let error = error {
+                    completion(error)
+                    return
+                }
+
+                guard let userId = result?.user.uid else { return }
+
+                let userData = [
+                    "name": name,
+                    "email": email,
+                    "profileImageUrl": "" // Placeholder for now
+                ]
+
+                self.db.collection("users").document(userId).setData(userData) { error in
+                    DispatchQueue.main.async {
+                        if let error = error {
+                            completion(error)
+                        } else {
+                            self.user = result?.user
+                            self.fetchUserProfile()
+                            completion(nil)
+                        }
+                    }
+                }
+            }
+    }
     
     func fetchUserProfile() {
           guard let userId = Auth.auth().currentUser?.uid else { return }
@@ -180,35 +200,7 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    
-    func signup(name: String, email: String, password: String, completion: @escaping (Error?) -> Void) {
-            Auth.auth().createUser(withEmail: email, password: password) { result, error in
-                if let error = error {
-                    completion(error)
-                    return
-                }
-
-                guard let userId = result?.user.uid else { return }
-
-                let userData = [
-                    "name": name,
-                    "email": email,
-                    "profileImageUrl": "" // Placeholder for now
-                ]
-
-                self.db.collection("users").document(userId).setData(userData) { error in
-                    DispatchQueue.main.async {
-                        if let error = error {
-                            completion(error)
-                        } else {
-                            self.user = result?.user
-                            self.fetchUserProfile()
-                            completion(nil)
-                        }
-                    }
-                }
-            }
-    }
+  
     func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
           Auth.auth().signIn(withEmail: email, password: password) { result, error in
               DispatchQueue.main.async {

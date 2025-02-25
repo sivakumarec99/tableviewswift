@@ -40,6 +40,8 @@ struct LoginView: View {
                     authViewModel.login(email: email, password: password) { error in
                         if let error = error {
                             self.errorMessage = error.localizedDescription
+                        }else{
+                            MainTabView()
                         }
                     }
                 }) {

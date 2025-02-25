@@ -67,6 +67,17 @@ struct ProfileView: View {
                 .padding()
             } else {
                 Text("No user logged in")
+                // 🔴 Logout Button
+                Button(action: {
+                    authViewModel.logout()
+                }) {
+                    Text("Logout")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
             }
         }
         .padding()
