@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseCore
+import FirebaseAppCheck
 
 @main
 struct TableSwiftApp: App {
@@ -14,6 +15,10 @@ struct TableSwiftApp: App {
 
     init() {
         FirebaseApp.configure()
+        #if DEBUG
+            let providerFactory = AppCheckDebugProviderFactory()
+            AppCheck.setAppCheckProviderFactory(providerFactory)
+        #endif
     }
     
     var body: some Scene {
